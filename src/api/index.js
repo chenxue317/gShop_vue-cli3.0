@@ -8,4 +8,11 @@ export const reqAddress = ({latitude, longitude}) => ajax.get(`${BASE}/position/
 export const reqCategorys = () => ajax.get(BASE + '/index_category')
 // 3、根据经纬度获取商铺列表
 export const reqShops = ({latitude, longitude}) => ajax.get(`${BASE}/shops`, {params:{latitude, longitude}})
+//4、用户名密码登陆
+export const reqLoginPwd = ({ name, pwd, captcha }) => ajax.post(BASE + '/login_pwd',{ name, pwd, captcha })
+//5、短信验证码登录
+export const reqLoginPhone = (phone, code) => ajax.post(BASE + '/login_sms',{ phone, code })
+//6、发送短信验证码
+export const reqCode = (phone) => ajax.get(BASE + '/sendcode',{ params:{ phone }})
+
 

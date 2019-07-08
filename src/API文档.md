@@ -471,7 +471,8 @@
         "code": 0,
         "data": {
           "_id": "5a9cd9c6ad5b2d34d42b385d",
-          "phone": "13716962779"
+          "phone": "13716962779",
+          "token":'abcdXXX'
         }
       }
     * 登陆失败
