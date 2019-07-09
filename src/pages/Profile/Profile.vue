@@ -88,15 +88,26 @@
         </div>
       </a>
     </section>
+    <section class="profile_my_order border-1px" v-if="user._id">
+      <mt-button type="danger" style="width:100%" @click.native="checkout">退出登录</mt-button>
+    </section>
   </section>
 </template>
 
 <script type="text/ecmascript-6">
   import {mapState} from 'vuex'
+  import {Button} from 'mint-ui'
   import Header from '../../components/Header/Header'
+  import Vue from 'vue'
+  Vue.component(Button.name, Button);
   export default {
     computed:{
       ...mapState(['user'])
+    },
+    methods:{
+      checkout(){
+        this.$store.dispatch('logout')
+      }
     },
     components:{
       Header
