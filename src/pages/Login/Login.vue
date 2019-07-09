@@ -123,10 +123,7 @@
         }
         if(result.code===0){
           const user = result.data
-          this.$store.commit(RECIEVE_USER,user)
-          //保存用户1、在state中保存2、将token永久保存到浏览器
-          localStorage.setItem('token_key',user.token)
-          this.$router.replace('/profile') 
+          this.$store.dispatch('recordUser',user) 
         }else if(result.code===1){
           alert(result.msg)
         }

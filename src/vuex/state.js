@@ -5,5 +5,6 @@ export default {
  address:{},
  categorys:[],
  shops:[],
- user:{}
+ user:{},
+ token:localStorage.getItem('token_key')
 }
