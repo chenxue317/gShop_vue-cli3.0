@@ -34,5 +34,17 @@ export const reqAutoLogin = () => ajax(
     headers:{needToken:true} //需要携带token，所以要置为true
   }
 )
-
+//mock访问接口函数
+//1、请求商品分类列表
+export const reqGoods = ()=>ajax({
+  url:'/goods'
+})
+//2、请求评价列表
+export const reqRatings = ()=>ajax({
+  url:'/ratings'
+})
+//3、请求商家详情列表
+export const reqInfo = ()=>ajax({
+  url:'/info'
+})
 

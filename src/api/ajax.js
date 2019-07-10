@@ -18,7 +18,7 @@ axios.interceptors.request.use(config => {
  //对needToken进行判断
  const {needToken} = config.headers
  if(needToken){
-  const token = store.state.token
+  const token = store.state.user.token
   if(token){
     config.headers.Authorization = token
   }else{

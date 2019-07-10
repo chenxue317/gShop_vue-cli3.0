@@ -42,7 +42,11 @@
   import {mapState} from 'vuex'  
   export default {
     computed:{
-      ...mapState(['address','categorys']),
+      //['address','categorys']
+      ...mapState({
+        address:state=>state.msite.address,
+        categorys:state=>state.msite.categorys
+      }),
       categorysArr(){
         const {categorys} = this
         const bigArr = []

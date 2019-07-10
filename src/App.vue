@@ -12,8 +12,16 @@
   export default {
     async mounted(){
       const result = await reqAutoLogin()
-      const user = result.data
-      this.$store.commit(RECIEVE_USER,user)
+      if(result){
+        if(result.code===0){//请求正确才会存储user
+          const user = result.data
+          this.$store.commit(RECIEVE_USER,user)
+        }else{
+          this.$router.replace('/login')
+        }
+      }
+      
+      
     },
     components:{
       FooterGuide

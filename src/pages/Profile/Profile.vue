@@ -89,24 +89,31 @@
       </a>
     </section>
     <section class="profile_my_order border-1px" v-if="user._id">
-      <mt-button type="danger" style="width:100%" @click.native="checkout">退出登录</mt-button>
+      <mt-button type="danger" style="width:100%" @click="checkout">退出登录</mt-button>
     </section>
   </section>
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapState} from 'vuex'
-  import {Button} from 'mint-ui'
+  import { mapState } from 'vuex'
+  import { Button,  MessageBox } from 'mint-ui'
   import Header from '../../components/Header/Header'
   import Vue from 'vue'
   Vue.component(Button.name, Button);
   export default {
     computed:{
-      ...mapState(['user'])
+      ...mapState({
+        user:state=>state.user.user
+      }),
+      
     },
     methods:{
       checkout(){
-        this.$store.dispatch('logout')
+        MessageBox.confirm('确定退出登录吗?').then(action => {
+          this.$store.dispatch('logout')
+        },action => {
+          console.log('不退出了，再玩玩')
+        })
       }
     },
     components:{
